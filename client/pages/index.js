@@ -1,7 +1,7 @@
-import TarotCard from '../components/TarotCard'
+import TarotCardsList from '../components/TarotCardsList'
 
 export default function Home() {
   return (
-    <TarotCard />
+    <TarotCardsList />
   )
 }
