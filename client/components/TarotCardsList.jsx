@@ -96,6 +96,11 @@ const deck = [
 
 const TarotCardsList = () => {
 
+  // click handler when user picks their cards
+  const pickedCard = (name) => {
+    console.log('you picked', name)
+  }
+
   // map over deck
   const allCards = deck.map((card, index) => {
     return (
@@ -103,6 +108,7 @@ const TarotCardsList = () => {
         key={index}
         id={index}
         deck={card}
+        pickedCard={pickedCard}
       />
     )
   })
