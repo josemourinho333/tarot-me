@@ -1,5 +1,6 @@
 import React from 'react';
 import TarotCard from './TarotCard';
+import styles from '../styles/TarotCardsList.module.scss';
 
 const deck = [
   {
@@ -109,7 +110,13 @@ const TarotCardsList = () => {
   return (
     <div>
       <h1>Cards List</h1>
-      <div className="flex">
+      <div className={styles.grid}>
+        {allCards}
+        {allCards}
+        {allCards}
+        {allCards}
+        {allCards}
+        {allCards}
         {allCards}
       </div>
     </div>
