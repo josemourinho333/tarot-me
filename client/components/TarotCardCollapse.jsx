@@ -8,7 +8,7 @@ const TarotCardCollapse = ({title, keywords, meaning}) => {
       </div>
       <div className="collapse-content"> 
         <p>{meaning}</p> <br/>
-        <p><strong>Keywords: </strong>{keywords.join(', ')}</p>
+        <p><strong>Keywords: </strong>{keywords?.join(', ')}</p>
       </div>
     </div>
   )
