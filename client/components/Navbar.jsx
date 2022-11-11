@@ -42,7 +42,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get a reading</a>
+        <a href="/reading" className="btn">Get a reading</a>
       </div>
     </div>
   )

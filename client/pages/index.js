@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import ProductList from "../components/ProductList";
 import getRandom from "../utils/getRandom";
 import upOrRev from '../utils/upOrRev';
+import Newsletter from "../components/Newsletter";
 
 const deck = [
   {
@@ -136,6 +137,7 @@ export default function Home() {
             </div>
           </div>
           <ProductList />
+          <Newsletter />
         </>
       }
       {
