@@ -25,13 +25,13 @@ const TarotCard = ({deck, id}) => {
 
   return (
     <>
-      <div className="tarot-card card glass hover:bg-accent w-full h-[70vh] row-span-1 sm:w-[30vh] sm:h-[50vh] md:w-[40vh] md:h-[60vh] lg:w-[40vh] lg:h-[60vh]" onClick={() => pickedCard(deck.name)}>
-        <div className="card-body justify-end">
+      <div className="tarot-card card glass hover:bg-accent w-[150px] h-[250px]" onClick={() => pickedCard(deck.name)}>
+        <div className="card-body justify-end p-4">
           <div className="card-actions justify-center">
             {
               !picked
                 ? <></>
-                : <label htmlFor={id} className="btn btn-primary btn-sm">{deck.name} | {cardDirection}</label>
+                : <label htmlFor={id} className="btn btn-primary btn-sm w-full">{deck.name} | {cardDirection}</label>
             }
           </div>
         </div>

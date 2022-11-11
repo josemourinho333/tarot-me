@@ -1,6 +1,7 @@
 import React from 'react';
 import TarotCard from './TarotCard';
 import styles from '../styles/TarotCardsList.module.scss';
+import pickRandom from '../utils/pickRandom';
 
 const deck = [
   {
@@ -105,19 +106,17 @@ const TarotCardsList = () => {
         deck={card}
       />
     )
-  })
+  })[Math.floor(Math.random() * deck.length)];
+
+  pickRandom(3, [1, 2, 3, 4, 5, 6]);
 
   return (
-    <div>
-      <h1>Cards List</h1>
-      <div className={styles.grid}>
+    <div className="flex flex-col items-center">
+      <h1>See what the spirits are trying to tell you</h1>
+      <div className="flex flex-wrap gap-4">
         {allCards}
-        {allCards}
-        {allCards}
-        {allCards}
-        {allCards}
-        {allCards}
-        {allCards}
+
+
       </div>
     </div>
   )
