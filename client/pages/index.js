@@ -121,11 +121,11 @@ export default function Home() {
       {
         !loading && 
         <>
-          <div className="hero min-h-screen bg-base-200 place-items-stretch">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="hero min-h-[80vh] bg-base-200">
+            <div className="hero-content flex-col gap-10 lg:flex-row-reverse">
               <img src="https://placeimg.com/260/400/arch" className={`max-w-sm rounded-lg shadow-2xl basis-1/2 ${dailyCard.direction === 'reversed' && "rotate-180"}`} />
               <div className="basis-1/2">
-                <h1 className="text-5xl font-bold">Your card for today</h1>
+                <h1 className="text-7xl font-bold">Your card for today</h1>
                 <p className="py-6">See what the spirits are trying to tell you today.</p>
                 {
                   !dailyCard
