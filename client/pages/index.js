@@ -1,5 +1,6 @@
 import Modal from "../components/Modal";
 import React, {useEffect, useState} from 'react';
+import ProductList from "../components/ProductList";
 import getRandom from "../utils/getRandom";
 import upOrRev from '../utils/upOrRev';
 
@@ -100,32 +101,43 @@ const deck = [
 
 export default function Home() {
   const [dailyCard, setDailyCard] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const picked = getRandom(1, deck);
-    const direction = upOrRev();
-    setDailyCard({
-      direction,
-      picked
-    });
+    if (loading) {
+      const picked = getRandom(1, deck);
+      const direction = upOrRev();
+      setDailyCard({
+        direction,
+        picked
+      });
+      setLoading(false);
+    }
   }, []);
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200 place-items-stretch">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src="https://placeimg.com/260/400/arch" className="max-w-sm rounded-lg shadow-2xl basis-1/2" />
-          <div className="basis-1/2">
-            <h1 className="text-5xl font-bold">Your card for today</h1>
-            <p className="py-6">See what the spirits are trying to tell you today.</p>
-            {
-              !dailyCard
-                ? <></>
-                : <label htmlFor={dailyCard.picked.id} className="btn btn-primary">Read Your Card</label>
-            }
+      {loading && <div>Loading...</div>}
+      {
+        !loading && 
+        <>
+          <div className="hero min-h-screen bg-base-200 place-items-stretch">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+              <img src="https://placeimg.com/260/400/arch" className={`max-w-sm rounded-lg shadow-2xl basis-1/2 ${dailyCard.direction === 'reversed' && "rotate-180"}`} />
+              <div className="basis-1/2">
+                <h1 className="text-5xl font-bold">Your card for today</h1>
+                <p className="py-6">See what the spirits are trying to tell you today.</p>
+                {
+                  !dailyCard
+                    ? <></>
+                    : <label htmlFor={dailyCard.picked.id} className="btn btn-primary">Read Your Card</label>
+                }
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          <ProductList />
+        </>
+      }
       {
         !dailyCard
           ? <></>
