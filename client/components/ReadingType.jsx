@@ -10,7 +10,7 @@ const ReadingType = ({type, description, next}) => {
         <h2 className="card-title">{type}</h2>
         <p>{description}</p>
         <div className="card-actions">
-          <button className="btn btn-primary" onClick={next}>start</button>
+          <button className="btn btn-primary" onClick={() => next(type)}>start</button>
         </div>
       </div>
     </div>
