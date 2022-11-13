@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-const Steps = ({stepOne, stepTwo, stepThree, currentStep}) => {
+const Steps = ({stepOne, stepTwo}) => {
+  const router = useRouter();
+  const { pid } = router.query;
 
   return (
-    <ul className="steps steps-vertical w-[70vw] text-neutral text-2xl font-bold lg:steps-horizontal">
-      <li className={`step ${currentStep >= 0 && 'step-primary'}`}>{stepOne}</li>
-      <li className={`step ${currentStep >= 1 && 'step-primary'}`}>{stepTwo}</li>
-      <li className={`step ${currentStep >= 2  && 'step-primary'}`}>{stepThree}</li>
+    <ul className="steps steps-vertical w-[70vw] text-neutral-content text-2xl font-bold lg:steps-horizontal">
+      <li className={`step step-primary`}>{stepOne}</li>
+      <li className={`step ${pid && 'step-primary'}`}>{stepTwo}</li>
     </ul>
   )
 }
