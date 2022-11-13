@@ -6,7 +6,7 @@ const Reading = () => {
 
   return (
     <ReadingLayout>
-      <div className="flex flex-wrap justify-center gap-5 mt-10">
+      <div className="w-full carousel carousel-center max-w-7xl p-10 space-x-4 bg-neutral rounded-box">
         <ReadingType type="One Card Spread" description="One card to rule them all." />
         <ReadingType type="Three Card Spread" description="Three aspects of you. The past, present and the future. or anything really." />
         <ReadingType type="Cross Five Card Spread" description="Cross spread, represents past, present future, core reason for circumstances and representing potential of situation." />
