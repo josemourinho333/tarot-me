@@ -6,8 +6,8 @@ const Steps = ({stepOne, stepTwo}) => {
   const { pid } = router.query;
 
   return (
-    <ul className="steps steps-vertical w-[70vw] text-neutral-content text-2xl font-bold lg:steps-horizontal">
-      <li className={`step step-primary`}>{stepOne}</li>
+    <ul className="steps steps-vertical w-[70vw] justify-items-center text-neutral-content text-2xl font-bold lg:steps-horizontal lg:justify-items-stretch">
+      <li className={`step step-primary`}><a href="/reading">{stepOne}</a></li>
       <li className={`step ${pid && 'step-primary'}`}>{stepTwo}</li>
     </ul>
   )
