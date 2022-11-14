@@ -1,6 +1,6 @@
 import React from 'react';
-import TarotCard from './TarotCard';
-import styles from '../styles/TarotCardsList.module.scss';
+import { useRouter } from 'next/router';
+import TarotCardsList from './TarotCardsList';
 
 const deck = [
   {
@@ -95,28 +95,19 @@ const deck = [
   }
 ];
 
-const TarotCardsList = () => {
-  // map over deck
-  const allCards = deck.map((card, index) => {
+const CardsReveal = (props) => {
+  const router = useRouter();
+  const { pid } = router.query;
+
+  if (pid === 'One Card Spread') {
     return (
-      <TarotCard
-        key={index}
-        id={index}
-        deck={card}
-      />
+      <div><TarotCardsList /></div>
     )
-  })[Math.floor(Math.random() * deck.length)];
+  }
 
   return (
-    <div className="flex flex-col items-center">
-      <h1>See what the spirits are trying to tell you</h1>
-      <div className="flex flex-wrap gap-4">
-        {allCards}
-
-
-      </div>
-    </div>
+    <div>CardsReveal</div>
   )
 }
 
-export default TarotCardsList;
+export default CardsReveal;

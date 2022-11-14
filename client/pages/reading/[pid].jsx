@@ -1,15 +1,24 @@
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import ReadingLayout from '../../components/ReadingLayout';
+import { GridLoader } from 'react-spinners';
+import CardsReveal from '../../components/CardsReveal';
 
 import React from 'react'
 
 const Reading = () => {
-  const router = useRouter();
-  const { pid } = router.query;
+  const [cueAnimation, setCueAnimation] = useState(false);
+
+  useEffect(() => {
+    setCueAnimation(true);
+    setTimeout(() => {
+      setCueAnimation(false);
+    }, 3000)
+  }, [])
 
   return (
     <ReadingLayout>
-      reading type: { pid }
+      {cueAnimation && <GridLoader color="#ffffff" size={20} margin={40}/>}
+      {!cueAnimation && <CardsReveal test='test prop'/>}
     </ReadingLayout>
   )
 }
