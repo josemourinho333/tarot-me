@@ -1,8 +1,17 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import axios from 'axios';
+import React from 'react';
+
+if (process.env.REACT_APP_API_BASE_URL) {
+  axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
+} else {
+  axios.defaults.baseURL = process.env.REACT_APP_LOCAL_URL;
+}
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <>
       <Head>

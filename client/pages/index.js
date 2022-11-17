@@ -126,7 +126,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/cards')
+    axios.get('/api/cards')
       .then((res) => {
         console.log('res', res);
       })
