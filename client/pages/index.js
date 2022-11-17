@@ -5,6 +5,9 @@ import getRandom from "../utils/getRandom";
 import upOrRev from '../utils/upOrRev';
 import Newsletter from "../components/Newsletter";
 
+import axios from 'axios';
+import useSWR from 'swr';
+
 const deck = [
   {
     name: 'World',
@@ -100,9 +103,15 @@ const deck = [
   }
 ];
 
+// const fetcher = url => axios.get(url)
+//   .then((res) => res.data)
+//   .catch((err) => console.log('err', err));
+
 export default function Home() {
   const [dailyCard, setDailyCard] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // const { data, error } = useSWR('https://localhost:8080/api/cards', fetcher);
 
   useEffect(() => {
     if (loading) {
@@ -115,6 +124,17 @@ export default function Home() {
       setLoading(false);
     }
   }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/cards')
+      .then((res) => {
+        console.log('res', res);
+      })
+      .catch((err) => console.log('err', err));
+  }, []);
+
+  // if (error) return <div>Failed to load</div>
+  // if (!data) return <div>Loading...</div>
 
   return (
     <>
