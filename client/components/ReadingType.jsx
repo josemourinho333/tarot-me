@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReadingType = ({type, description, next}) => {
+const ReadingType = ({type, description, target}) => {
   return (
     <div className="carousel-item">
       <div className="card card-normal w-96 h-[600px] bg-base-100 shadow-xl">
@@ -11,7 +11,7 @@ const ReadingType = ({type, description, next}) => {
           <h2 className="card-title">{type}</h2>
           <p>{description}</p>
           <div className="card-actions">
-            <button className="btn btn-primary"> <a href={`/reading/${type}`}>Start</a></button>
+            <button className="btn btn-primary"> <a href={`/reading/${type}?target=${target}`}>Start</a></button>
           </div>
         </div>
       </div>

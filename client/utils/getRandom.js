@@ -1,10 +1,12 @@
 //get random card when given target and array of cards
-const getRandom = (target, arr) => {
-  const newArr = arr.sort(() => {
+const getRandom = (target, cards) => {
+  // shuffles
+  const shuffledCards = [...cards]
+  shuffledCards.sort(() => {
     return Math.random() - 0.5;
   });
-
-  return newArr[Math.floor(Math.random() * newArr.length)];
+  
+  return shuffledCards.slice(0, target);
 };
 
 export default getRandom;
