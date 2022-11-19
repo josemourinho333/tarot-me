@@ -6,7 +6,7 @@ const getRandom = (target, cards) => {
     return Math.random() - 0.5;
   });
 
-  const pickedCards = shuffledCards.slice(0, 3);
+  const pickedCards = shuffledCards.slice(0, target);
 
   // loop over picked cards and randomly get their positions (upright or reversed)
   const finalPicked = [];
