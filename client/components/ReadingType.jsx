@@ -3,7 +3,7 @@ import React from 'react';
 const ReadingType = ({type, description, target}) => {
   return (
     <div className="carousel-item">
-      <div className="card card-compact w-80 h-[500px] bg-base-100 shadow-xl image-full">
+      <div className="card card-compact w-72 h-[500px] bg-base-100 shadow-xl image-full">
         <figure>
           <img src="https://i.pinimg.com/564x/b0/9c/f5/b09cf56a71189e965226db755a233a02.jpg" alt="Shoes" className="rounded-xl object-cover h-full w-full" />
         </figure>
