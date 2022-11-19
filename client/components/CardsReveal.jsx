@@ -14,7 +14,6 @@ const CardsReveal = ({ cards }) => {
   }, []);
 
   const mappedCards = picked?.map((card) => {
-    console.log('card position', card.card)
     return (
       <TarotCard
         key={card.card.id}
@@ -34,11 +33,31 @@ const CardsReveal = ({ cards }) => {
         {mappedCards}
       </div>
     )
-  }
+  };
 
-  return (
-    <div>CardsReveal</div>
-  )
+  if (pid === 'Three Card Spread') {
+    return (
+      <div className="w-full carousel carousel-center max-w-3xl p-10 space-x-4 bg-neutral rounded-box">
+        {mappedCards}
+      </div>
+    )
+  };
+
+  if (pid === 'Five Card Spread') {
+    return (
+      <div className="w-full carousel carousel-center max-w-6xl p-10 space-x-4 bg-neutral rounded-box">
+        {mappedCards}
+      </div>
+    )
+  };
+
+  if (pid === 'Ten Card Spread') {
+    return (
+      <div className="w-full carousel carousel-center max-w-7xl p-10 space-x-4 bg-neutral rounded-box">
+        {mappedCards}
+      </div>
+    )
+  };
 }
 
 export default CardsReveal;

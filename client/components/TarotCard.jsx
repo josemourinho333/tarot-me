@@ -8,7 +8,7 @@ const TarotCard = ({id, name, family, description, overview, position}) => {
     <>
       <label htmlFor={modalIdentifer}>
         <div className="card card-compact w-52 h-96 bg-base-100 shadow-xl image-full cursor-pointer">
-          <figure><img src="https://content.wepik.com/statics/4356819/preview-page0.jpg" alt={name}/></figure>
+          <figure><img src="https://content.wepik.com/statics/4356819/preview-page0.jpg" alt={name} className={position === "reversed" ? 'rotate-180' : ''}/></figure>
           <div className="card-body items-center justify-center">
             <p>{name} | {position}</p>
             <h2 className={`card-title text-xl whitespace-normal break-words inline-block ${position === 'reversed' && 'rotate-180'}`}>{name}</h2>
