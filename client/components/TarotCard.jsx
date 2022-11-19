@@ -1,44 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TarotCardInfo from './TarotCardInfo';
 
-const TarotCard = ({deck, id}) => {
-  const [cardDirection, setCardDirection] = useState(null);
-  const [picked, setPicked] = useState(false);
-
-  // pick direction
-  const upOrRev = () => {
-    const zeroOrOne = Math.random();
-
-    if (zeroOrOne < 0.5) {
-      setCardDirection('upright');
-    } else {
-      setCardDirection('reversed');
-    }
-  };
-
-  // click handler when user picks their cards
-  const pickedCard = (name) => {
-    console.log('you picked', name)
-    upOrRev();
-    setPicked(true);
-  };
+const TarotCard = ({id, name, family, description, overview, position}) => {
+  const modalIdentifer = name.split(' ').join('').toLowerCase();
 
   return (
     <>
-      <div className="tarot-card card glass hover:bg-accent w-[150px] h-[250px]" onClick={() => pickedCard(deck.name)}>
-        <div className="card-body justify-end p-4">
-          <div className="card-actions justify-center">
-            {
-              !picked
-                ? <></>
-                : <label htmlFor={id} className="btn btn-primary btn-sm w-full">{deck.name} | {cardDirection}</label>
-            }
+      <label htmlFor={modalIdentifer}>
+        <div className="card card-compact w-52 h-96 bg-base-100 shadow-xl image-full cursor-pointer">
+          <figure><img src="https://content.wepik.com/statics/4356819/preview-page0.jpg" alt={name} className={position === "reversed" ? 'rotate-180' : ''}/></figure>
+          <div className="card-body items-center justify-center">
+            <p>{name} | {position}</p>
+            <h2 className={`card-title text-xl whitespace-normal break-words inline-block ${position === 'reversed' && 'rotate-180'}`}>{name}</h2>
           </div>
         </div>
-      </div>
-      <TarotCardInfo deck={deck} cardDirection={cardDirection} id={id}/>
+      </label>
+      <TarotCardInfo name={name} family={family} description={description} overview={overview} position={position} id={id} modalIdentifer={modalIdentifer}/>
     </>
   )
-}
+};
 
 export default TarotCard;

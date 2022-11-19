@@ -1,24 +1,22 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import ReadingLayout from '../../components/ReadingLayout';
 import { GridLoader } from 'react-spinners';
 import CardsReveal from '../../components/CardsReveal';
+import axios from 'axios';
+import useSWR from 'swr';
 
-import React from 'react'
+const fetcher = url => axios.get(url)
+  .then((res) => res.data)
+  .catch((err) => console.log('err', err));
 
 const Reading = () => {
-  const [cueAnimation, setCueAnimation] = useState(false);
-
-  useEffect(() => {
-    setCueAnimation(true);
-    setTimeout(() => {
-      setCueAnimation(false);
-    }, 3000)
-  }, [])
+  const { data, error } = useSWR('/api/cards', fetcher);
 
   return (
     <ReadingLayout>
-      {cueAnimation && <GridLoader color="#ffffff" size={20} margin={40}/>}
-      {!cueAnimation && <CardsReveal test='test prop'/>}
+      {error && <div>Failed to load</div>}
+      {!data && <GridLoader color="#ffffff" size={20} margin={40}/>}
+      {data && <CardsReveal cards={data[0].cards}/>}
     </ReadingLayout>
   )
 }
