@@ -37,7 +37,7 @@ const CardsReveal = ({ cards }) => {
 
   if (pid === 'Three Card Spread') {
     return (
-      <div className="w-full carousel carousel-center max-w-3xl p-10 space-x-4 bg-neutral rounded-box">
+      <div className="w-full carousel carousel-center max-w-xl p-2 space-x-4 bg-neutral rounded-box">
         {mappedCards}
       </div>
     )
@@ -45,7 +45,7 @@ const CardsReveal = ({ cards }) => {
 
   if (pid === 'Five Card Spread') {
     return (
-      <div className="w-full carousel carousel-center max-w-6xl p-10 space-x-4 bg-neutral rounded-box">
+      <div className="w-full carousel carousel-center max-w-xl p-2 space-x-4 bg-neutral rounded-box">
         {mappedCards}
       </div>
     )
@@ -53,7 +53,7 @@ const CardsReveal = ({ cards }) => {
 
   if (pid === 'Ten Card Spread') {
     return (
-      <div className="w-full carousel carousel-center max-w-7xl p-10 space-x-4 bg-neutral rounded-box">
+      <div className="w-full carousel carousel-center max-w-xl p-2 space-x-4 bg-neutral rounded-box">
         {mappedCards}
       </div>
     )

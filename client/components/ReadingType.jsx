@@ -3,15 +3,15 @@ import React from 'react';
 const ReadingType = ({type, description, target}) => {
   return (
     <div className="carousel-item">
-      <div className="card card-normal w-96 h-[600px] bg-base-100 shadow-xl">
-        <figure className="px-10 pt-10 basis-1/2">
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" className="rounded-xl object-cover h-full" />
+      <div className="card card-compact w-80 h-[500px] bg-base-100 shadow-xl image-full">
+        <figure>
+          <img src="https://i.pinimg.com/564x/b0/9c/f5/b09cf56a71189e965226db755a233a02.jpg" alt="Shoes" className="rounded-xl object-cover h-full w-full" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{type}</h2>
-          <p>{description}</p>
-          <div className="card-actions">
-            <button className="btn btn-primary"> <a href={`/reading/${type}?target=${target}`}>Start</a></button>
+          <h2 className="card-title basis-1/4">{type}</h2>
+          <p className="basis-2/4 px-8">{description}</p>
+          <div className="card-actions basis-1/4">
+            <button className="btn btn-primary"><a href={`/reading/${type}?target=${target}`}>Start</a></button>
           </div>
         </div>
       </div>
