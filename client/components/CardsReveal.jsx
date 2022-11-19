@@ -14,19 +14,25 @@ const CardsReveal = ({ cards }) => {
   }, []);
 
   const mappedCards = picked?.map((card) => {
+    console.log('card position', card.card)
     return (
       <TarotCard
-        key={card.id}
-        name={card.name}
-        family={card.family}
-        description={card.description}
+        key={card.card.id}
+        id={`${card.card.id}`}
+        name={card.card.name}
+        family={card.card.family}
+        description={card.card.description}
+        position={card.position}
+        overview={card.card.overview[card.position][0]}
       />
     )
   })
 
   if (pid === 'One Card Spread') {
     return (
-      <TarotCard />
+      <div>
+        {mappedCards}
+      </div>
     )
   }
 
