@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    baseURL: 'https://tarot-cards-py.herokuapp.com',
+    baseURL: 'https://tarot-card-backend.onrender.com',
     REACT_APP_LOCAL_URL: 'http://localhost:8080',
   },
   images: {

@@ -3,9 +3,7 @@ import LearningLayout from '../components/LearningLayout';
 
 const Learn = () => {
   return (
-    <LearningLayout>
-      <div>learn</div>
-    </LearningLayout>
+    <div className="bg-blue-300">lorem500</div>
   )
 }
 

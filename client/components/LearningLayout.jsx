@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
+import LearnNavBar from './LearnNavBar';
 
-const LearningLayout = () => {
+const LearningLayout = ({children}) => {
   return (
-    <div>LearningLayout</div>
+    <div className="flex">
+      <LearnNavBar />
+      <main className="w-full">
+        {children}
+      </main>
+    </div>
+   
   )
 }
 
