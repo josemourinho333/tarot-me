@@ -12,17 +12,11 @@ if (process.env.baseURL) {
 
 function MyApp({ Component, pageProps }) {
 
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
-        <title>Tarot Card</title>
-      </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
+  const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
+
+  return getLayout(
+      <Component {...pageProps} />
   )
 }
 
-export default MyApp
+export default MyApp;
