@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import axios from 'axios';
 import React from 'react';
 
-if (process.env.REACT_APP_API_BASE_URL) {
+if (process.env.baseURL) {
   axios.defaults.baseURL = process.env.baseURL;
 } else {
   axios.defaults.baseURL = process.env.REACT_APP_LOCAL_URL;
