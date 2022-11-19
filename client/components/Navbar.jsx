@@ -19,7 +19,7 @@ const Navbar = () => {
                 <li><a>Astrology & Horoscope</a></li>
               </ul>
             </li> */}
-            <li><a>Learn</a></li>
+            <li><a href="/learn">Learn</a></li>
             {/* <li><a>Shop</a></li> */}
           </ul>
         </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
               <li><a>Astrology & Horoscope</a></li>
             </ul>
           </li> */}
-          <li><a>Learn</a></li>
+          <li><a href="/learn">Learn</a></li>
           {/* <li><a>Shop</a></li> */}
         </ul>
       </div>
