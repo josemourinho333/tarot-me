@@ -14,6 +14,7 @@ const CardsReveal = ({ cards }) => {
   }, []);
 
   const mappedCards = picked?.map((card) => {
+    console.log(card);
     return (
       <TarotCard
         key={card.card.id}
@@ -23,6 +24,7 @@ const CardsReveal = ({ cards }) => {
         description={card.card.description}
         position={card.position}
         overview={card.card.overview[card.position][0]}
+        image={card.card.image}
       />
     )
   })

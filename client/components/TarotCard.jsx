@@ -1,21 +1,21 @@
 import React from 'react';
 import TarotCardInfo from './TarotCardInfo';
 
-const TarotCard = ({id, name, family, description, overview, position}) => {
+const TarotCard = ({id, name, family, description, overview, position, image}) => {
   const modalIdentifer = name.split(' ').join('').toLowerCase();
 
   return (
     <>
       <label htmlFor={modalIdentifer}>
       <div className="carousel-item cursor-pointer">
-        <div className="card card-compact w-72 h-[500px] bg-base-100 shadow-xl image-full">
+        <div className="card card-compact w-72 h-[475px] bg-base-100 shadow-xl">
           <figure>
-            <img src="https://i.pinimg.com/474x/dd/c3/b5/ddc3b5730b79ce9d1f4f837b3a0ded3f.jpg" alt={name} className={`rounded-xl object-cover h-full w-full ${position === "reversed" ? 'rotate-180' : ''}`} />
+            <img src={image} alt={name} className={`rounded-xl object-cover h-full w-full ${position === "reversed" ? 'rotate-180' : ''}`} />
           </figure>
-          <div className="card-body items-center text-center justify-center">
+          {/* <div className="card-body items-center text-center justify-center">
             <p>{name} | {position}</p>
             <h2 className={`card-title text-3xl whitespace-normal break-words inline-block ${position === 'reversed' && 'rotate-180'}`}>{name}</h2>
-          </div>
+          </div> */}
         </div>
       </div>
       </label>
