@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import LearningLayout from '../components/LearningLayout';
 import LearningDefault from '../components/LearningDefault';
 import LearningView from '../components/LearningView';
 
 const Learn = ({selected, cards, selectHandler}) => {
-  const [theCard, setTheCard] = useState(null);
 
   if (!selected) {
     const learningCards = cards?.map((card) => {

@@ -2,7 +2,6 @@ import React from 'react';
 import TarotCardKeywords from './TarotCardKeywords';
 
 const LearningView = ({ name, desc, family, overview, image }) => {
-  console.log('overview', overview);
   return (
     <div classsName="flex flex-col">
       <h2 className="font-bold text-5xl my-5">{name}</h2>
