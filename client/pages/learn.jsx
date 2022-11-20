@@ -3,7 +3,7 @@ import LearningLayout from '../components/LearningLayout';
 import LearningDefault from '../components/LearningDefault';
 import LearningView from '../components/LearningView';
 
-const Learn = ({selected, cards}) => {
+const Learn = ({selected, cards, selectHandler}) => {
   const [theCard, setTheCard] = useState(null);
 
   if (!selected) {
@@ -11,9 +11,11 @@ const Learn = ({selected, cards}) => {
       return (
         <LearningDefault 
           key={card.id}
+          id={card.id}
           name={card.name}
           desc={card.description}
           family={card.family}
+          selectHandler={selectHandler}
         />
       )
     })

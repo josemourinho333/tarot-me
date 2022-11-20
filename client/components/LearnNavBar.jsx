@@ -38,7 +38,7 @@ const LearnNavBar = ({cards, selected, selectHandler}) => {
         <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
           <HiMenuAlt1 className="text-neutral-content text-4xl"/>
         </label>
-        <Learn selected={selected} cards={cards}/>
+        <Learn selected={selected} cards={cards} selectHandler={selectHandler}/>
       </div> 
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
