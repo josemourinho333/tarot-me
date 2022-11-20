@@ -16,6 +16,7 @@ const Learn = ({selected, cards, selectHandler}) => {
           desc={card.description}
           family={card.family}
           selectHandler={selectHandler}
+          image={card.image}
         />
       )
     })
@@ -35,6 +36,7 @@ const Learn = ({selected, cards, selectHandler}) => {
           desc={card.description}
           family={card.family}
           overview={card.overview}
+          image={card.image}
         />
       )
     }

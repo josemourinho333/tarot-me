@@ -17,6 +17,7 @@ router.get('/cards', (req, res) => {
           name,
           family,
           description,
+          images.url,
           (
             SELECT
               json_build_object(
@@ -42,10 +43,15 @@ router.get('/cards', (req, res) => {
                 )
               )
             AS overview
-          )
+          ),
+          images.url AS image
         FROM
-         cards
-      ) as cards;
+          cards
+        LEFT JOIN 
+          images 
+        ON 
+          cards.id = images.card_id
+      ) as cards
   `;
 
   return db
@@ -56,10 +62,4 @@ router.get('/cards', (req, res) => {
     .catch((err) => console.log('err:', err));
 });
 
-// SELECT 
-//       json_agg(row_to_json(overview)) AS reversed
-//     FROM
-//       (SELECT id, reversed, meaning, keywords FROM overviews)
-//     AS overview
-//     WHERE reversed = false;
 module.exports = router;

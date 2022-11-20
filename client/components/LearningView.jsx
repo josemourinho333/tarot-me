@@ -1,7 +1,7 @@
 import React from 'react';
 import TarotCardKeywords from './TarotCardKeywords';
 
-const LearningView = ({ name, desc, family, overview }) => {
+const LearningView = ({ name, desc, family, overview, image }) => {
   console.log('overview', overview);
   return (
     <div classsName="flex flex-col">
@@ -9,10 +9,10 @@ const LearningView = ({ name, desc, family, overview }) => {
       <p className="italic text-xl font-semibold my-5">{family}</p>
       <div className="carousel carousel-center h-[400px] max-w-full p-4 space-x-4 bg-neutral rounded-box">
         <div className="carousel-item">
-          <img src="https://i.pinimg.com/564x/b0/9c/f5/b09cf56a71189e965226db755a233a02.jpg" alt="" className="w-full object-cover rounded-xl"/>
+          <img src={image} alt="" className="w-full object-cover rounded-xl"/>
         </div> 
         <div className="carousel-item">
-          <img src="https://i.pinimg.com/564x/b0/9c/f5/b09cf56a71189e965226db755a233a02.jpg" alt="" className="w-full object-cover rounded-xl"/>        
+          <img src={image} alt="" className="w-full object-cover rounded-xl rotate-180"/>        
         </div> 
       </div>
       {/* <div className="flex flex-col lg:flex-row gap-10 h-[600px] bg-neutral rounded-xl p-10">
