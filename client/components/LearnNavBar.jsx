@@ -44,6 +44,7 @@ const LearnNavBar = ({cards, selected, selectHandler}) => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
           <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
+          <li><button onClick={() => selectHandler(null)} className={`${!selected ? 'bg-primary text-primary-content' : ''}`}>All</button></li>
           {items}
         </ul>
       </div>
