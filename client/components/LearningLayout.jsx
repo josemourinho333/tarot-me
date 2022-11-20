@@ -10,7 +10,7 @@ const fetcher = url => axios.get(url)
 
 const LearningLayout = () => {
   const { data, error } = useSWR('/api/cards', fetcher);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(696969);
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
