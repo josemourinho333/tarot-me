@@ -19,7 +19,7 @@ const LearningMain = ({ selected, cards, selectHandler }) => {
       )
     })
     return (
-      <div className="p-10 flex flex-wrap gap-10 justify-center max-h-screen overflow-y-auto">
+      <div className="p-5 flex flex-wrap gap-10 justify-center max-h-screen overflow-y-auto">
         {learningCards}  
       </div>
     )
@@ -41,7 +41,7 @@ const LearningMain = ({ selected, cards, selectHandler }) => {
   });
 
   return (
-    <div className="p-10 flex flex-wrap justify-center max-h-screen overflow-y-auto">
+    <div className="p-5 flex flex-wrap justify-center max-h-screen overflow-y-auto">
       {selectedCard}
     </div>
   )
