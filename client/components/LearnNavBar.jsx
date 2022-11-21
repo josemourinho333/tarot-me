@@ -32,23 +32,24 @@ const LearnNavBar = ({cards, selected, selectHandler}) => {
   };
   
   return (
-    <div className="drawer drawer-mobile max-w-max">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-start justify-center">
-        <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
-          <HiMenuAlt1 className="text-neutral-content text-4xl"/>
-        </label>
-        <Learn selected={selected} cards={cards} selectHandler={selectHandler}/>
-      </div> 
-      <div className="drawer-side">
-        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
-          <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
-          <li><button onClick={() => selectHandler(696969)} className={`${selected === 696969 ? 'bg-primary text-primary-content' : ''}`}>All</button></li>
-          {items}
-        </ul>
-      </div>
-    </div>
+    <></>
+    // <div className="drawer drawer-mobile max-w-max">
+    //   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+    //   <div className="drawer-content flex flex-col items-start justify-center">
+    //     <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
+    //       <HiMenuAlt1 className="text-neutral-content text-4xl"/>
+    //     </label>
+    //     <Learn selected={selected} cards={cards} selectHandler={selectHandler}/>
+    //   </div> 
+    //   <div className="drawer-side">
+    //     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+    //     <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
+    //       <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
+    //       <li><button onClick={() => selectHandler(696969)} className={`${selected === 696969 ? 'bg-primary text-primary-content' : ''}`}>All</button></li>
+    //       {items}
+    //     </ul>
+    //   </div>
+    // </div>
   )
 };
 
