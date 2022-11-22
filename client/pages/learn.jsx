@@ -4,8 +4,9 @@ import LearningMain from '../components/LearningMain';
 import axios from 'axios';
 import useSWR from 'swr';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
-const fetcher = url => axios.get(url)
+const fetcher = url => axios.get(urld)
   .then((res) => res.data[0].cards)
   .catch((err) => console.log('err', err));
 
@@ -31,7 +32,7 @@ const Learn = () => {
     }
   }, [data]);
 
-  if (error) return <div>Failed to load</div>
+  if (error) return <Error />
   if (!data) return <Loading />
 
   // Select drawer item handler
