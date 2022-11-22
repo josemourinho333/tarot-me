@@ -11,7 +11,7 @@ const fetcher = url => axios.get(url)
 
 const Learn = () => {
   const { data, error } = useSWR('/api/cards', fetcher);
-  const [selected, setSelected] = useState(1);
+  const [selected, setSelected] = useState(0);
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -50,6 +50,10 @@ const Learn = () => {
     }
   };
 
+  items.unshift(
+    <li><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
+  );
+
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -64,7 +68,6 @@ const Learn = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
           <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
-          <li><button onClick={() => selectHandler(696969)} className={`${selected === 696969 ? 'bg-primary text-primary-content' : ''}`}>All</button></li>
           {items}
         </ul>
       </div>

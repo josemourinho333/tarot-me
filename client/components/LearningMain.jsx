@@ -4,7 +4,7 @@ import LearningView from '../components/LearningView';
 
 const LearningMain = ({ selected, cards, selectHandler }) => {
 
-  if (selected === 696969) {
+  if (!selected) {
     const learningCards = cards?.map((card) => {
       return (
         <LearningDefault 
