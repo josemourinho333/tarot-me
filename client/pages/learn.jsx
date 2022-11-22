@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import LearningLayout from '../components/LearningLayout';
 import LearningMain from '../components/LearningMain';
 import axios from 'axios';
 import useSWR from 'swr';
+import LearningDefault from '../components/LearningDefault';
 
 const fetcher = url => axios.get(url)
   .then((res) => res.data[0].cards)
@@ -12,6 +13,24 @@ const fetcher = url => axios.get(url)
 const Learn = () => {
   const { data, error } = useSWR('/api/cards', fetcher);
   const [selected, setSelected] = useState(0);
+  const [catList, setCatList] = useState(null);
+
+  useEffect(() => {
+    if (!data) {
+      return;
+    } else {
+      // create array of categories of tarot cards
+      if (!catList) {
+        const catNames = [];
+        for (const card of data) {
+          if (!catNames.includes(card.family)) {
+            catNames.push(card.family);
+          }
+        };
+        setCatList([...catNames]);
+      };
+    }
+  }, [data]);
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -21,38 +40,50 @@ const Learn = () => {
     setSelected(id);
   };
 
-  // create array of categories of tarot cards
-  const catList = [];
-  for (const card of data) {
-    if (!catList.includes(card.family)) {
-      catList.push(card.family);
-    }
-  };
-
-  // loop over array of categoires and loop over each cards within to create grouped jsx elements
-  const items = [];
-  for (let i = 0; i < catList.length; i++) {
-    items.push(
-      <li key={i + 10000}><a href="/" className="font-semibold text-xl pointer-events-none">{catList[i]}</a></li>
+  const drawerItems = catList?.map((cat, index) => {
+    const output = [];
+    output.push(
+      <li key={index + 10000}>
+        <a href="/" className="font-semibold text-xl pointer-events-none">
+          {cat}
+        </a>
+      </li>
     );
-    for (let j = 0; j < data.length; j++) {
-      if (catList[i] === data[j].family) {
-        items.push(
+    
+    data?.forEach((card) => {
+      if (card.family === cat) {
+        output.push(
           <li
-            key={data[j].id}
-            id={data[j].id}
+            key={card.id}
+            id={card.id}
             className="pl-3"
           >
-            <button onClick={() => selectHandler(data[j].id)} className={`${selected === data[j].id ? 'bg-primary text-primary-content' : ''}`}>{data[j].name}</button>
+            <button onClick={() => selectHandler(card.id)} className={`${selected === card.id ? 'bg-primary text-primary-content' : ''}`}>{card.name}</button>
           </li>
         )
       }
-    }
-  };
+    });
 
-  items.unshift(
-    <li><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
+    return output;
+  });
+
+  drawerItems?.unshift(
+    <li key={0} id={0}><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
   );
+
+  const learningDefaultList = data?.map((card) => {
+    return (
+      <LearningDefault 
+        key={card.id}
+        id={card.id}
+        name={card.name}
+        desc={card.description}
+        family={card.family}
+        selectHandler={selectHandler}
+        image={card.image}
+      />
+    )
+  });
 
   return (
     <div className="drawer drawer-mobile">
@@ -61,14 +92,19 @@ const Learn = () => {
         <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
-        <LearningMain selected={selected} cards={data} selectHandler={selectHandler} />
-        {/* <Learn selected={selected} cards={data} selectHandler={selectHandler}/> */}
+        {
+          !selected
+            ? <div className="p-5 flex flex-wrap gap-10 justify-center max-h-screen overflow-y-auto">
+                {learningDefaultList}
+              </div>
+            : <LearningMain selected={selected} cards={data} selectHandler={selectHandler} />
+        }
       </div> 
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
           <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
-          {items}
+          {drawerItems}
         </ul>
       </div>
     </div>
