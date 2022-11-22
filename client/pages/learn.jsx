@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 
-const fetcher = url => axios.get(urld)
+const fetcher = url => axios.get(url)
   .then((res) => res.data[0].cards)
   .catch((err) => console.log('err', err));
 
