@@ -42,13 +42,27 @@ const Learn = () => {
 
   const drawerItems = catList?.map((cat, index) => {
     const output = [];
-    output.push(
-      <li key={index + 10000}>
-        <a href="/" className="font-semibold text-xl pointer-events-none">
-          {cat}
-        </a>
-      </li>
-    );
+
+    if (index === 0) {
+      output.push(
+        <li key={0} id={0}><button onClick={() => selectHandler(0)} className={`${!selected ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
+      );
+      output.push(
+        <li key={index + 10000}>
+          <a href="/" className="font-semibold text-xl pointer-events-none">
+            {cat}
+          </a>
+        </li>
+      );
+    } else {
+      output.push(
+        <li key={index + 10000}>
+          <a href="/" className="font-semibold text-xl pointer-events-none">
+            {cat}
+          </a>
+        </li>
+      );
+    }
     
     data?.forEach((card) => {
       if (card.family === cat) {
@@ -67,24 +81,6 @@ const Learn = () => {
     return output;
   });
 
-  // drawerItems?.unshift(
-  //   <li key={0} id={0}><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
-  // );
-
-  const learningDefaultList = data?.map((card) => {
-    return (
-      <LearningDefault 
-        key={card.id}
-        id={card.id}
-        name={card.name}
-        desc={card.description}
-        family={card.family}
-        selectHandler={selectHandler}
-        image={card.image}
-      />
-    )
-  });
-
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -92,13 +88,7 @@ const Learn = () => {
         <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
-        {
-          !selected
-            ? <div className="p-5 flex flex-wrap gap-10 justify-center max-h-screen overflow-y-auto">
-                {learningDefaultList}
-              </div>
-            : <LearningMain selected={selected} cards={data} selectHandler={selectHandler} />
-        }
+          <LearningMain selected={selected} cards={data} selectHandler={selectHandler} />
       </div> 
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
