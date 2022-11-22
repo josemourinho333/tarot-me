@@ -67,9 +67,9 @@ const Learn = () => {
     return output;
   });
 
-  drawerItems?.unshift(
-    <li key={0} id={0}><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
-  );
+  // drawerItems?.unshift(
+  //   <li key={0} id={0}><button onClick={() => selectHandler(0)} className={`${selected === 0 ? 'bg-primary text-primary-content' : ''}`}>All Cards</button></li>
+  // );
 
   const learningDefaultList = data?.map((card) => {
     return (
