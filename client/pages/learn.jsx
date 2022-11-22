@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { HiMenuAlt1 } from 'react-icons/hi';
 import LearningLayout from '../components/LearningLayout';
 import LearningMain from '../components/LearningMain';
 import axios from 'axios';
 import useSWR from 'swr';
-import LearningDefault from '../components/LearningDefault';
+import Loading from '../components/Loading';
 
 const fetcher = url => axios.get(url)
   .then((res) => res.data[0].cards)
@@ -33,7 +32,7 @@ const Learn = () => {
   }, [data]);
 
   if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (!data) return <Loading />
 
   // Select drawer item handler
   const selectHandler = (id) => {
