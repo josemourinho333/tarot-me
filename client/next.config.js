@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     baseURL: process.env.baseURL,
-    REACT_APP_LOCAL_URL: process.env.REACT_APP_LOCAL_UR,
+    REACT_APP_LOCAL_URL: process.env.REACT_APP_LOCAL_URL,
   },
   images: {
         domains: ['placeimg.com'],
