@@ -4,7 +4,7 @@ Full stack app that will pull random tarot cards for you depending on what type 
 
 You can also go to learn page to learn and read about all 78 cards. 
 
-Visit - [Tarot Reader](https://637ad77fcac7300008cffac7--scintillating-scone-d0792d.netlify.app/)
+Visit - [Tarot Reader](https://tarotme.netlify.app/)
 
 ### Screenshots
 ![home](https://github.com/josemourinho333/tarot-me/blob/master/docs/Screen%20Shot%202022-11-20%20at%206.16.04%20PM.png?raw=true)
