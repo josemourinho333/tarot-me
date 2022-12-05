@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    baseURL: 'https://tarot-card-backend.onrender.com',
-    REACT_APP_LOCAL_URL: 'http://localhost:8080',
+    baseURL: process.env.baseURL,
+    REACT_APP_LOCAL_URL: process.env.REACT_APP_LOCAL_URL,
   },
   images: {
         domains: ['placeimg.com'],

@@ -3,7 +3,6 @@ import ReadingType from '../components/ReadingType';
 import ReadingLayout from '../components/ReadingLayout';
 
 const Reading = () => {
-
   return (
     <ReadingLayout>
       <div className="w-full carousel carousel-center max-w-5xl my-5 space-x-4 bg-neutral rounded-box">

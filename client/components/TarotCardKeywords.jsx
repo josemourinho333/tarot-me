@@ -7,8 +7,8 @@ const TarotCardKeywords = ({keywords}) => {
       <div>
         <GiHeraldicSun />
         <div>
-          <h3 className="font-bold">Keywords</h3>
-          <div className="text-xs">{keywords}</div>
+          <h3 className="font-bold text-lg">Keywords</h3>
+          <div className="text-sm">{keywords}</div>
         </div>
       </div>
     </div>
