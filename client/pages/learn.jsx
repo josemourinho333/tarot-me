@@ -10,7 +10,6 @@ const Learn = ({ cards }) => {
 
   useEffect(() => {
     // create array of categories of tarot cards
-    console.log('in use effect');
     const catNames = [];
     for (const card of cards) {
       if (!catNames.includes(card.family)) {
@@ -86,18 +85,6 @@ const Learn = ({ cards }) => {
     </div>
   )
 };
-
-// server side data fetching at build time
-export async function getStaticProps() {
-  const res = await axios.get('/api/cards');
-  const data = await res.data;
-
-  return {
-    props: {
-      cards: data[0].cards,
-    },
-  }
-}
 
 export default Learn;
 
