@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import LearningLayout from '../components/LearningLayout';
 import LearningMain from '../components/LearningMain';
-import axios from 'axios';
-import Loading from '../components/Loading';
+import Head from 'next/head';
+import Link from 'next/link';
 
 const Learn = ({ cards }) => {
   const [selected, setSelected] = useState(0);
@@ -17,7 +17,7 @@ const Learn = ({ cards }) => {
       }
     };
     setCatList([...catNames]);
-  }, []);
+  }, [cards]);
 
   // Select drawer item handler
   const selectHandler = (id) => {
@@ -33,17 +33,17 @@ const Learn = ({ cards }) => {
       );
       output.push(
         <li key={index + 10000}>
-          <a href="/" className="font-semibold text-xl pointer-events-none">
+          <Link href="/" className="font-semibold text-xl pointer-events-none">
             {cat}
-          </a>
+          </Link>
         </li>
       );
     } else {
       output.push(
         <li key={index + 10000}>
-          <a href="/" className="font-semibold text-xl pointer-events-none">
+          <Link href="/" className="font-semibold text-xl pointer-events-none">
             {cat}
-          </a>
+          </Link>
         </li>
       );
     }
@@ -78,7 +78,7 @@ const Learn = ({ cards }) => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-neutral text-neutral-content">
-          <li><a href="/" className="font-bold normal-case text-3xl">Tarot & I</a></li>
+          <li><Link href="/" className="font-bold normal-case text-3xl">Tarot.Me</Link></li>
           {drawerItems}
         </ul>
       </div>
@@ -91,6 +91,7 @@ export default Learn;
 Learn.getLayout = function getLayout(page) {
   return (
     <LearningLayout>
+      <Head><title>Tarot.Me - Learn</title></Head>
       {page}
     </LearningLayout>
   )

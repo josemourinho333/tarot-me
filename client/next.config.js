@@ -6,7 +6,7 @@ const nextConfig = {
     REACT_APP_LOCAL_URL: process.env.REACT_APP_LOCAL_URL,
   },
   images: {
-        domains: ['placeimg.com'],
+        domains: ['placeimg.com', 'cdn.shopify.com'],
   },
 }
 

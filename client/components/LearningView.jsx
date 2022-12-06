@@ -1,5 +1,6 @@
 import React from 'react';
 import TarotCardKeywords from './TarotCardKeywords';
+import Image from 'next/image';
 
 const LearningView = ({ name, desc, family, overview, image }) => {
   return (
@@ -8,10 +9,10 @@ const LearningView = ({ name, desc, family, overview, image }) => {
       <p className="italic text-3xl font-base my-5">{family}</p>
       <div className="carousel carousel-center h-[70vh] max-w-full p-4 space-x-4 bg-neutral rounded-box">
         <div className="carousel-item">
-          <img src={image} alt={`${name}-up`} className="w-full rounded-xl"/>
+          <Image src={image} alt={`${name}-up`} width="0" height="0" className="w-full rounded-xl" unoptimized priority/>
         </div> 
         <div className="carousel-item">
-          <img src={image} alt={`${name}-reverse`} className="w-full rounded-xl rotate-180"/>        
+          <Image src={image} alt={`${name}-reverse`} width="0" height="0" className="w-full rounded-xl rotate-180" unoptimized priority/>        
         </div> 
       </div>
 

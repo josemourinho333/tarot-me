@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -9,42 +10,19 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-2 p-2 shadow bg-neutral text-base-content w-screen divide-y divide-solid divide-neutral-content">
-            {/* <li tabIndex={0}>
-              <a className="justify-between">
-                Reading
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-              </a>
-              <ul className="p-2 bg-base-100">
-                <li><a>Tarot Reading</a></li>
-                <li><a>Astrology & Horoscope</a></li>
-              </ul>
-            </li> */}
-            <li ><a href="/reading" className="text-2xl font-light py-5">Reading</a></li>
-            <li ><a href="/learn" className="text-2xl font-light py-5">Learn</a></li>
-            {/* <li><a>Shop</a></li> */}
+            <li ><Link href="/reading" className="text-2xl font-light py-5">Reading</Link></li>
+            <li ><Link href="/learn" className="text-2xl font-light py-5">Learn</Link></li>
           </ul>
         </div>
-        <a href="/" className="btn btn-ghost normal-case text-3xl font-black">Tarot.Me</a>
+        <Link href="/" className="btn btn-ghost normal-case text-3xl font-black">Tarot.Me</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          {/* <li tabIndex={0}>
-            <a>
-              Reading
-              <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-            </a>
-            <ul className="p-2 bg-base-100">
-              <li><a>Tarot Reading</a></li>
-              <li><a>Astrology & Horoscope</a></li>
-            </ul>
-          </li> */}
-          {/* <li><a href="/learn">Learn</a></li> */}
-          {/* <li><a>Shop</a></li> */}
         </ul>
       </div>
       <div className="navbar-end px-[1rem] gap-x-2 lg:px-0 ">
-        <a href="/reading" className="btn btn-sm btn-outline">Get a reading</a>
-        <a href="/learn" className="btn btn-sm btn-outline hidden lg:flex">Learn</a>
+        <Link href="/reading" className="btn btn-sm btn-outline">Get a reading</Link>
+        <Link href="/learn" className="btn btn-sm btn-outline hidden lg:flex">Learn</Link>
       </div>
     </div>
   )
