@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const axios = require('axios');
 
 const db = require('../db/database');
 
@@ -60,6 +61,16 @@ router.get('/cards', (req, res) => {
       res.json(cards);
     })
     .catch((err) => console.log('err:', err));
+});
+
+// get dailyhoroscope
+router.get('/horoscope', (req, res) => {
+  const sign = req.query.sign;
+  axios.get(`https://ohmanda.com/api/horoscope/${sign}`)
+    .then((data) => {
+      return res.json(data.data);
+    })
+    .catch((err) => console.log('err', err));
 });
 
 module.exports = router;
