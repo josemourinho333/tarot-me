@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import TarotCard from './TarotCard';
 import getRandom from '../utils/getRandom';
+import { useCardsContext } from '../context/Cards';
 
-const CardsReveal = ({ cards }) => {
+const CardsReveal = ({cards}) => {
   const router = useRouter();
   const { pid, target } = router.query;
   const [picked, setPicked] = useState(null);
@@ -11,7 +12,7 @@ const CardsReveal = ({ cards }) => {
   useEffect(() => {
     const randomlyPicked = getRandom(target, cards);
     setPicked([...randomlyPicked]);
-  }, []);
+  }, [cards]);
 
   const mappedCards = picked?.map((card) => {
     return (
