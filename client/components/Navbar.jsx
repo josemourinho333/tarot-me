@@ -10,8 +10,9 @@ const Navbar = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-2 p-2 shadow bg-neutral text-base-content w-screen divide-y divide-solid divide-neutral-content">
-            <li ><Link href="/reading" className="text-2xl font-light py-5">Reading</Link></li>
             <li ><Link href="/learn" className="text-2xl font-light py-5">Learn</Link></li>
+            <li ><Link href="/reading" className="text-2xl font-light py-5">Get a Reading</Link></li>
+            <li ><Link href="/horoscope" className="text-2xl font-light py-5">Daily Horoscope</Link></li>
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost normal-case text-3xl font-black">Tarot.Me</Link>
@@ -21,8 +22,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end px-[1rem] gap-x-2 lg:px-0 ">
-        <Link href="/reading" className="btn btn-sm btn-outline">Get a reading</Link>
         <Link href="/learn" className="btn btn-sm btn-outline hidden lg:flex">Learn</Link>
+        <Link href="/reading" className="btn btn-sm btn-outline">Get a reading</Link>
+        <Link href="/horoscope" className="btn btn-sm btn-outline hidden lg:flex">Daily Horoscope</Link>
       </div>
     </div>
   )
