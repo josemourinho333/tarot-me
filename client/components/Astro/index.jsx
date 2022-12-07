@@ -1,8 +1,11 @@
 import React from 'react';
+import PickDoB from './PickDoB';
 
 const Astro = () => {
   return (
-    <div>Astro</div>
+    <div>
+      <PickDoB/>
+    </div>
   )
 }
 
