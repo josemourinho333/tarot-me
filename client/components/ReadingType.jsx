@@ -12,7 +12,7 @@ const ReadingType = ({type, description, target}) => {
           <h2 className="card-title basis-1/4">{type}</h2>
           <p className="basis-2/4 px-8">{description}</p>
           <div className="card-actions basis-1/4">
-            <button className="btn btn-primary"><a href={`/reading/${type}?target=${target}`}>Start</a></button>
+            <button className="btn btn-primary"><a href={`/reading/${target}`}>Start</a></button>
           </div>
         </div>
       </div>

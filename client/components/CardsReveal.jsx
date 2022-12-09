@@ -1,20 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 import TarotCard from './TarotCard';
-import getRandom from '../utils/getRandom';
-import { useCardsContext } from '../context/Cards';
 
 const CardsReveal = ({cards}) => {
-  const router = useRouter();
-  const { pid, target } = router.query;
-  const [picked, setPicked] = useState(null);
 
-  useEffect(() => {
-    const randomlyPicked = getRandom(target, cards);
-    setPicked([...randomlyPicked]);
-  }, [cards]);
-
-  const mappedCards = picked?.map((card) => {
+  const mappedCards = cards?.map((card) => {
     return (
       <TarotCard
         key={card.card.id}
@@ -27,39 +16,21 @@ const CardsReveal = ({cards}) => {
         image={card.card.image}
       />
     )
-  })
+  });
 
-  if (pid === 'One Card Spread') {
+  if (mappedCards?.length === 1) {
     return (
-      <div>
-        {mappedCards}
-      </div>
-    )
-  };
+    <div className="w-full carousel carousel-center max-w-5xl my-5 space-x-4 bg-neutral rounded-box justify-center">
+      {mappedCards}
+    </div>
+  );
+  }
 
-  if (pid === 'Three Card Spread') {
-    return (
-      <div className="w-full carousel carousel-center max-w-3xl my-5 space-x-4 bg-neutral rounded-box">
-        {mappedCards}
-      </div>
-    )
-  };
-
-  if (pid === 'Five Card Spread') {
-    return (
-      <div className="w-full carousel carousel-center max-w-3xl my-5 space-x-4 bg-neutral rounded-box">
-        {mappedCards}
-      </div>
-    )
-  };
-
-  if (pid === 'Ten Card Spread') {
-    return (
-      <div className="w-full carousel carousel-center max-w-3xl my-5 space-x-4 bg-neutral rounded-box">
-        {mappedCards}
-      </div>
-    )
-  };
-}
+  return (
+    <div className="w-full carousel carousel-center max-w-5xl my-5 space-x-4 bg-neutral rounded-box">
+      {mappedCards}
+    </div>
+  );
+};
 
 export default CardsReveal;
