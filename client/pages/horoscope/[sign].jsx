@@ -45,6 +45,6 @@ const Horoscope = () => {
       </div>
     </div>
   )
-}
+};
 
 export default Horoscope;
