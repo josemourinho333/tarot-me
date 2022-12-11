@@ -4,12 +4,13 @@ import LearningMain from '../components/LearningMain';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useCardsContext } from '../context/Cards';
+import axios from 'axios';
 
-const Learn = () => {
+const Learn = ({ cards }) => {
   const [selected, setSelected] = useState(0);
   const [catList, setCatList] = useState(null);
 
-  const cards = useCardsContext();
+  // const cards = useCardsContext();
 
   useEffect(() => {
     // create array of categories of tarot cards
@@ -87,6 +88,17 @@ const Learn = () => {
       </div>
     </div>
   )
+};
+
+export async function getStaticProps() {
+  const res = await axios.get('/api/cards');
+  const cards = await res.data[0].cards;
+
+  return {
+    props: {
+      cards,
+    }
+  }
 };
 
 export default Learn;
